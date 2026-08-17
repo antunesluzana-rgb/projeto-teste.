@@ -23,9 +23,9 @@
            margin: 0 auto;
            padding: 16px;
            border: 5px solid #ffd000;
-       }
-</style>
-</head>
+          }
+  </style>
+ </head>
 <body>
        <header>
           <h1>São Marcos Evangelista!</h1>
@@ -33,19 +33,40 @@
        </header>
 
        <main>
+        <article>
           <h2>O Santo que mudou a vida da minha família!</h2>
           <p>Por: Ana Julia.</p>
           <p>A festa de São Marcos Evangelista é celebrada em 25 de abril. Seu emblema é um leão alado, simbolo da cidade de veneza
-         do qual é padroeiro. Viveu em intimo contato com o apóstolo Paulo, acompanhando-o em algumas viagens, mas também com Pedro, cujas
-         catequeses transcreveu em seu Evangelho.</p>
-         <img src="shutterstock_1506026366-800x600-1.jpg">
-         <button>🧡 <span>0</span></button>
+            do qual é padroeiro. Viveu em intimo contato com o apóstolo Paulo, acompanhando-o em algumas viagens, mas também com Pedro, cujas
+            catequeses transcreveu em seu Evangelho.</p>
+            <img src="shutterstock_1506026366-800x600-1.jpg">
+            <button>🧡 <span>0</span></button>
+            <button>👍 <span>0</span></button>
+         </article>
       </main> 
-      
+       
+      <article>
+        <h2>O Santo da minha vida!</h2>
+        <p>Foi ele que salvou a minha família, hoje eu sou muito grata a ele! </p>
+        <p>"Nada há fora do homem que, entrando nele, possa contaminá-lo; mas o que sai do homem, isso é que o contamina."
+          (Marcos 7, 15)</p>
+          <img src="saomarcos.webp">
+          <button>🧡 <span>0</span></button>
+          <button>👍 <span>0</span></button>
+      </article>
+
      </body>
      <script>
-          const botao = document.querySelector("button");
-          botao.addEventListener("click", botaoClicado);
+          const botoes = document.querySelectorAll("button");
+
+          botoes.forEach( function(botao){
+            botao.addEventListener("click", botaoClicado);
+            function botaoClicado(){
+              console.log("fui clicado");
+              let texto = botao.querySelector("span");
+              texto.textContent++;
+          }
+     } )
           
           function botaoClicado(){
               console.log("fui clicado");
@@ -55,3 +76,4 @@
 
      </script>
 </html>
+,
