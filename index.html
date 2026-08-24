@@ -1,84 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SÃO MARCOS</title>
-</head>
-<body>
 
   <style>
+    body {
+      background-color: #D4AF37;
+      font-size: 25px;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
     header {
       background-color: #EDA751;
       color: #000000;
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
-      }
-      main {
-           background-color: #FFFFFF;
-           color: #EDA751;
-           max-width: 800px;
-           margin: 0 auto;
-           padding: 16px;
-           border: 5px solid #ffd000;
-          }
+      padding: 16px;
+    }
+
+    main {
+      background-color: #FFFFFF;
+      color: #EDA751;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+      border: 5px solid #ffd000;
+    }
+
+    article {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 3px solid #EDA751;
+    }
+
+    article:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font-size: 18px;
+      cursor: pointer;
+      margin-right: 8px;
+    }
   </style>
- </head>
+</head>
 <body>
-       <header>
-          <h1>São Marcos Evangelista!</h1>
-          <p>"O tempo já se completou e o Reino de Deus está próximo. Convertei-vos e crede no Evangelho". (Marcos 1:15)!</p>
-       </header>
 
-       <main>
-        <article>
-          <h2>O Santo que mudou a vida da minha família!</h2>
-          <p>Por: Ana Julia.</p>
-          <p>A festa de São Marcos Evangelista é celebrada em 25 de abril. Seu emblema é um leão alado, simbolo da cidade de veneza
-            do qual é padroeiro. Viveu em intimo contato com o apóstolo Paulo, acompanhando-o em algumas viagens, mas também com Pedro, cujas
-            catequeses transcreveu em seu Evangelho.</p>
-            <img src="saomarcos.jpg">
-            <button>🧡 <span>0</span></button>
-            <button>👍 <span>0</span></button>
-         </article>
-         
-         <article>
-           <h2>O Santo da minha vida!</h2>
-           <p>Foi ele que salvou a minha família, hoje eu sou muito grata a ele! </p>
-           <p>"Nada há fora do homem que, entrando nele, possa contaminá-lo; mas o que sai do homem, isso é que o contamina."
-             (Marcos 7, 15)</p>
-             <img src="saomarcos.webp" width=800 height=600>
-             <button>🧡 <span>0</span></button>
-             <button>👍 <span>0</span></button>
-            </article>
-          </main> 
+  <header>
+    <h1>São Marcos Evangelista!</h1>
+    <p>"O tempo já se completou e o Reino de Deus está próximo. Convertei-vos e crede no Evangelho". (Marcos 1:15)!</p>
+  </header>
 
-     </body>
-     <script>    texto.textContent++;
-            let curtiu = false;
-            botao.addEventListener("click", botaoClicado);
-            function botaoClicado(){
-              console.log("fui clicado");
-              let texto = botao.querySelector("span");
-              if (curtiu === false){
-                texto.textContent++;
-                  curtiu = true;
-                } else{
-                  texto.textContent--;
-                  curtiu = false;
-                }
-                  
-          }
-     
-          
-          function botaoClicado(){
-              console.log("fui clicado");
-              let texto = botao.querySelector("span");
-              texto.textContent++;
-          }
+  <main>
+    <article>
+      <h2>O Santo que mudou a vida da minha família!</h2>
+      <p>Por: Ana Julia.</p>
+      <p>A festa de São Marcos Evangelista é celebrada em 25 de abril. Seu emblema é um leão alado, símbolo da cidade de Veneza
+        do qual é padroeiro. Viveu em íntimo contato com o apóstolo Paulo, acompanhando-o em algumas viagens, mas também com Pedro, cujas
+        catequeses transcreveu em seu Evangelho.</p>
+      <img src="saomarcos.jpg" alt="Imagem de São Marcos Evangelista">
+      <button class="curtir">🧡 <span>0</span></button>
+      <button class="curtir">👍 <span>0</span></button>
+    </article>
 
-     </script>
+    <article>
+      <h2>O Santo da minha vida!</h2>
+      <p>Foi ele que salvou a minha família, hoje eu sou muito grata a ele!</p>
+      <p>"Nada há fora do homem que, entrando nele, possa contaminá-lo; mas o que sai do homem, isso é que o contamina."
+        (Marcos 7, 15)</p>
+      <img src="saomarcos.webp" width="800" height="600" alt="Imagem de São Marcos Evangelista">
+      <button class="curtir">🧡 <span>0</span></button>
+      <button class="curtir">👍 <span>0</span></button>
+    </article>
+  </main>
+
+  <script>
+    const botoes = document.querySelectorAll(".curtir");
+
+    botoes.forEach((botao) => {
+      let curtiu = false;
+
+      botao.addEventListener("click", () => {
+        const texto = botao.querySelector("span");
+        let valor = Number(texto.textContent);
+
+        if (!curtiu) {
+          valor++;
+        } else {
+          valor--;
+        }
+
+        texto.textContent = valor;
+        curtiu = !curtiu;
+      });
+    });
+  </script>
+
+</body>
 </html>
-,
